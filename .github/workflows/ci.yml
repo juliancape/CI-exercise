@@ -51,5 +51,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
           aws-region: us-east-1
+
       - name: List Buckets
         run: aws s3 ls
+
+      - name: Upload to S3
+        run: aws s3 cp . s3://julian-bucket-big-data/code --recursive
