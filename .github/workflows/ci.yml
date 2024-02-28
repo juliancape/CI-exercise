@@ -43,3 +43,11 @@ jobs:
           pytest utils_test.py
           autopep8 --in-place --aggressive --aggressive utils_test.py test.py
           flake8 test.py utils_test.py
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+          aws-region: us-east-1
